@@ -3,200 +3,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gavyn Wild — Enterprise Customer Success Leader</title>
+<title>Gavyn Wild â Enterprise Customer Success Leader</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #1B3A6B;
-    --teal: #0E7490;
-    --teal-light: #E0F2FE;
-    --slate: #334155;
-    --muted: #64748B;
-    --border: #E2E8F0;
-    --bg: #FAFAFA;
-    --white: #FFFFFF;
-    --accent-gold: #C9A84C;
+    --night: #150E2D;
+    --night-2: #1C1440;
+    --dusk-purple: #3B2159;
+    --sunset-pink: #FF6FA8;
+    --sunset-coral: #FF7A6E;
+    --sunset-orange: #FF9B57;
+    --sunset-gold: #FFD277;
+    --pool-teal: #37D6C4;
+    --grid-line: rgba(255, 111, 168, 0.5);
+    --cream: #FFF3E4;
+    --lavender: #C9BFE0;
+    --lavender-dim: #9686B8;
+    --card-bg: rgba(255, 255, 255, 0.045);
+    --card-border: rgba(255, 178, 200, 0.18);
+    --card-border-hover: rgba(255, 178, 200, 0.45);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--slate);
-    line-height: 1.65;
+    font-family: 'Sora', sans-serif;
+    color: var(--cream);
+    line-height: 1.7;
+    background: linear-gradient(180deg,
+      var(--night) 0%,
+      var(--night) 12%,
+      #241750 32%,
+      #3B2159 55%,
+      #6B2E56 75%,
+      #A5395A 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  .display {
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+  }
+
+  .grad-text {
+    background: linear-gradient(90deg, var(--sunset-gold), var(--sunset-pink) 60%, var(--pool-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(21, 14, 45, 0.75);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5vw;
     height: 64px;
   }
   .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    color: var(--navy);
-    letter-spacing: -0.01em;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
     text-decoration: none;
+    background: linear-gradient(90deg, var(--sunset-gold), var(--sunset-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--navy); }
+  .nav-links a { text-decoration: none; color: var(--lavender); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+  .nav-links a:hover { color: var(--sunset-pink); }
 
   /* HERO */
   .hero {
+    position: relative;
     min-height: 100vh;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 80px 5vw 60px;
-    gap: 4rem;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
+    padding: 90px 5vw 60px;
+    gap: 3rem;
   }
-  .hero-content {}
+
+  .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+  .stars {
+    position: absolute; top: 0; left: 0; right: 0; height: 45%;
+    background-image:
+      radial-gradient(1.5px 1.5px at 10% 20%, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1.5px 1.5px at 25% 45%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1.5px 1.5px at 60% 30%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 75% 10%, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1.5px 1.5px at 85% 40%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 95% 22%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1.5px 1.5px at 15% 8%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 50% 5%, rgba(255,255,255,0.7), transparent);
+  }
+
+  .retro-sun {
+    position: absolute;
+    top: 12%;
+    right: 8%;
+    width: 340px;
+    height: 340px;
+    opacity: 0.9;
+  }
+
+  .synthgrid {
+    position: absolute; left: -10%; right: -10%; bottom: 0; height: 280px;
+    background-image:
+      repeating-linear-gradient(90deg, var(--grid-line) 0 2px, transparent 2px 70px),
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1.5px, transparent 1.5px 34px);
+    transform: perspective(280px) rotateX(58deg);
+    transform-origin: bottom;
+    mask-image: linear-gradient(to top, black 35%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to top, black 35%, transparent 95%);
+    opacity: 0.55;
+  }
+
+  .palm { position: absolute; bottom: 0; opacity: 0.9; }
+  .palm-left { left: -20px; width: 200px; height: auto; }
+  .palm-right { right: -10px; width: 170px; height: auto; transform: scaleX(-1); }
+
+  .hero-content { position: relative; z-index: 2; }
   .hero-eyebrow {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--teal);
-    background: var(--teal-light);
-    padding: 4px 12px;
+    color: var(--pool-teal);
+    border: 1px solid rgba(55, 214, 196, 0.4);
+    background: rgba(55, 214, 196, 0.08);
+    padding: 5px 14px;
     border-radius: 100px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
   .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    line-height: 1.05;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
   }
-  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero h1 .grad-text { display: inline; }
   .hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--muted);
-    max-width: 460px;
+    font-size: 1.08rem;
+    color: var(--lavender);
+    max-width: 480px;
     margin-bottom: 2.5rem;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.8;
   }
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
-    padding: 0.75rem 1.75rem;
-    background: var(--navy);
-    color: white;
+    padding: 0.8rem 1.75rem;
+    background: linear-gradient(90deg, var(--sunset-pink), var(--sunset-orange));
+    color: #241236;
     border: none;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    transition: transform 0.15s, box-shadow 0.2s;
     display: inline-flex; align-items: center; gap: 8px;
   }
-  .btn-primary:hover { background: #14305a; transform: translateY(-1px); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 111, 168, 0.35); }
   .btn-outline {
-    padding: 0.75rem 1.75rem;
+    padding: 0.8rem 1.75rem;
     background: transparent;
-    color: var(--navy);
-    border: 1.5px solid var(--navy);
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
+    color: var(--pool-teal);
+    border: 1.5px solid rgba(55, 214, 196, 0.5);
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s;
     display: inline-flex; align-items: center; gap: 8px;
   }
-  .btn-outline:hover { background: var(--navy); color: white; }
+  .btn-outline:hover { background: rgba(55, 214, 196, 0.12); border-color: var(--pool-teal); }
 
   .hero-visual {
+    position: relative; z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: flex-end;
+    align-items: stretch;
   }
   .stat-card {
-    background: var(--navy);
-    color: white;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
     border-radius: 16px;
-    padding: 1.5rem 2rem;
-    width: 100%;
-    max-width: 340px;
+    padding: 1.4rem 1.75rem;
+    transition: border-color 0.2s;
   }
-  .stat-card.alt { background: var(--teal); }
-  .stat-card.light { background: var(--white); color: var(--slate); border: 1px solid var(--border); }
+  .stat-card:hover { border-color: var(--card-border-hover); }
   .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label { font-size: 0.8rem; opacity: 0.8; font-weight: 400; }
-  .stat-card.light .stat-number { color: var(--navy); }
-  .stat-card.light .stat-label { color: var(--muted); opacity: 1; }
-
-  /* METRICS BAR */
-  .metrics-bar {
-    background: var(--navy);
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 2.5rem 5vw;
-    gap: 2rem;
-    text-align: center;
-  }
-  .metric-item {}
-  .metric-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.25rem;
-    color: white;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2.1rem;
     line-height: 1;
     margin-bottom: 6px;
   }
-  .metric-num span { color: var(--accent-gold); }
-  .metric-desc { font-size: 0.8rem; opacity: 0.7; font-weight: 300; line-height: 1.4; }
+  .stat-label { font-size: 0.82rem; color: var(--lavender-dim); font-weight: 400; line-height: 1.5; }
+
+  /* METRICS BAR */
+  .metrics-bar {
+    position: relative; z-index: 2;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2.75rem 5vw;
+    gap: 2rem;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-desc { font-size: 0.8rem; color: var(--lavender-dim); font-weight: 300; line-height: 1.5; }
 
   /* SECTIONS */
-  section { padding: 6rem 5vw; }
-  section:nth-child(even) { background: var(--white); }
+  section { position: relative; padding: 6rem 5vw; z-index: 1; }
   .section-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 0.75rem;
+    color: var(--pool-teal);
+    margin-bottom: 0.9rem;
   }
   .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--navy);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    color: var(--cream);
   }
   .section-intro {
     font-size: 1rem;
-    color: var(--muted);
-    max-width: 600px;
+    color: var(--lavender);
+    max-width: 620px;
     margin-bottom: 3rem;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.8;
   }
 
   /* ABOUT */
@@ -207,142 +275,146 @@
     align-items: start;
   }
   .about-text p {
-    color: var(--slate);
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-    font-size: 0.975rem;
+    color: var(--lavender);
+    line-height: 1.85;
+    margin-bottom: 1.35rem;
+    font-size: 0.98rem;
+    font-weight: 300;
   }
   .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
   .highlight-item {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--teal);
-    border-radius: 0 8px 8px 0;
-    padding: 1rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--pool-teal);
+    border-radius: 0 12px 12px 0;
+    padding: 1.1rem 1.4rem;
+    backdrop-filter: blur(6px);
   }
   .highlight-item strong {
     display: block;
-    font-size: 0.875rem;
-    color: var(--navy);
+    font-size: 0.9rem;
+    color: var(--sunset-gold);
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
-  .highlight-item span { font-size: 0.825rem; color: var(--muted); }
+  .highlight-item span { font-size: 0.85rem; color: var(--lavender-dim); font-weight: 300; }
 
   /* EXPERIENCE */
-  .timeline { display: flex; flex-direction: column; gap: 0; }
   .exp-card {
-    border: 1px solid var(--border);
-    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
     padding: 2rem 2.25rem;
-    background: var(--white);
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
     margin-bottom: 1.25rem;
-    transition: box-shadow 0.2s;
     position: relative;
     overflow: hidden;
+    transition: border-color 0.2s;
   }
   .exp-card::before {
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--navy);
-    border-radius: 4px 0 0 4px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--sunset-pink), var(--pool-teal));
   }
-  .exp-card:hover { box-shadow: 0 8px 30px rgba(27,58,107,0.1); }
-  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem; }
-  .exp-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--navy); }
+  .exp-card:hover { border-color: var(--card-border-hover); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-title { font-family: 'Audiowide', sans-serif; font-size: 1.05rem; color: var(--cream); line-height: 1.4; }
   .exp-dates {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: white;
-    background: var(--teal);
-    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--night);
+    background: var(--pool-teal);
+    padding: 4px 12px;
     border-radius: 100px;
     white-space: nowrap;
   }
-  .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--teal); margin-bottom: 0.75rem; }
-  .exp-desc { font-size: 0.875rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.7; font-style: italic; }
-  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .exp-bullets li { font-size: 0.875rem; color: var(--slate); line-height: 1.6; padding-left: 1.25rem; position: relative; }
-  .exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--teal); font-size: 0.7rem; top: 4px; }
-  .exp-stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--sunset-pink); margin-bottom: 0.85rem; }
+  .exp-desc { font-size: 0.87rem; color: var(--lavender-dim); margin-bottom: 1.1rem; line-height: 1.7; font-style: italic; font-weight: 300; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .exp-bullets li { font-size: 0.87rem; color: var(--lavender); line-height: 1.7; padding-left: 1.25rem; position: relative; font-weight: 300; }
+  .exp-bullets li strong { color: var(--cream); font-weight: 600; }
+  .exp-bullets li::before { content: '\25B8'; position: absolute; left: 0; color: var(--pool-teal); font-size: 0.7rem; top: 5px; }
+  .exp-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--card-border); }
   .exp-stat {
-    background: var(--teal-light);
-    border-radius: 8px;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8rem;
-    color: var(--teal);
+    background: rgba(255, 210, 119, 0.1);
+    border: 1px solid rgba(255, 210, 119, 0.25);
+    border-radius: 100px;
+    padding: 0.45rem 1rem;
+    font-size: 0.78rem;
+    color: var(--sunset-gold);
     font-weight: 600;
   }
 
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
   .skill-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
     text-align: center;
     transition: all 0.2s;
   }
-  .skill-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .skill-card:hover { border-color: var(--card-border-hover); transform: translateY(-3px); }
   .skill-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
-  .skill-name { font-size: 0.875rem; font-weight: 600; color: var(--navy); }
+  .skill-name { font-size: 0.87rem; font-weight: 600; color: var(--cream); }
 
   /* CERTIFICATIONS */
   .cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
   .cert-card {
     display: flex; align-items: center; gap: 1rem;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
     padding: 1.25rem 1.5rem;
   }
   .cert-badge {
     width: 44px; height: 44px; flex-shrink: 0;
-    background: var(--navy);
+    background: linear-gradient(135deg, var(--sunset-pink), var(--sunset-orange));
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 1.25rem;
+    font-size: 1.2rem;
   }
-  .cert-info {}
-  .cert-name { font-size: 0.875rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-  .cert-issuer { font-size: 0.775rem; color: var(--muted); }
+  .cert-name { font-size: 0.87rem; font-weight: 600; color: var(--cream); margin-bottom: 3px; }
+  .cert-issuer { font-size: 0.78rem; color: var(--lavender-dim); font-weight: 300; }
 
   /* CONTACT */
-  .contact-section { background: var(--navy) !important; color: white; text-align: center; }
-  .contact-section .section-label { color: var(--accent-gold); }
-  .contact-section .section-title { color: white; }
-  .contact-section .section-intro { color: rgba(255,255,255,0.7); margin: 0 auto 2.5rem; }
-  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-section { text-align: center; }
+  .contact-section .section-label { color: var(--sunset-gold); }
+  .contact-section .section-intro { color: var(--lavender); margin: 0 auto 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
   .contact-link {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 0.75rem 1.5rem;
-    border: 1.5px solid rgba(255,255,255,0.3);
-    border-radius: 8px;
-    color: white;
+    padding: 0.8rem 1.6rem;
+    border: 1.5px solid rgba(255, 210, 119, 0.4);
+    border-radius: 100px;
+    color: var(--sunset-gold);
     text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.87rem;
+    font-weight: 600;
     transition: all 0.2s;
+    background: rgba(255, 210, 119, 0.05);
   }
-  .contact-link:hover { background: rgba(255,255,255,0.1); border-color: white; }
+  .contact-link:hover { background: rgba(255, 210, 119, 0.15); border-color: var(--sunset-gold); }
 
   /* FOOTER */
   footer {
-    background: #0F2040;
-    color: rgba(255,255,255,0.4);
+    position: relative; z-index: 1;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
     font-size: 0.8rem;
+    color: var(--lavender-dim);
+    border-top: 1px solid var(--card-border);
   }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero { grid-template-columns: 1fr; padding-top: 100px; }
-    .hero-visual { align-items: stretch; }
-    .stat-card { max-width: 100%; }
+    .retro-sun { width: 220px; height: 220px; top: 6%; right: 4%; opacity: 0.55; }
     .metrics-bar { grid-template-columns: repeat(2, 1fr); }
     .about-grid { grid-template-columns: 1fr; }
     nav .nav-links { display: none; }
@@ -353,7 +425,7 @@
 
 <!-- NAVIGATION -->
 <nav>
-  <a href="#" class="nav-logo">Gavyn Wild</a>
+  <a href="#" class="nav-logo">GAVYN WILD</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -364,29 +436,76 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="stars"></div>
+
+    <svg class="retro-sun" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFD277"/>
+          <stop offset="45%" stop-color="#FF9B57"/>
+          <stop offset="100%" stop-color="#FF6FA8"/>
+        </linearGradient>
+        <clipPath id="sunClip"><circle cx="100" cy="100" r="90"/></clipPath>
+      </defs>
+      <circle cx="100" cy="100" r="90" fill="url(#sunGrad)" clip-path="url(#sunClip)"/>
+      <g clip-path="url(#sunClip)" opacity="0.9">
+        <rect x="0" y="118" width="200" height="7" fill="#1C1440"/>
+        <rect x="0" y="132" width="200" height="7" fill="#1C1440"/>
+        <rect x="0" y="146" width="200" height="8" fill="#1C1440"/>
+        <rect x="0" y="162" width="200" height="9" fill="#1C1440"/>
+        <rect x="0" y="180" width="200" height="10" fill="#1C1440"/>
+      </g>
+    </svg>
+
+    <svg class="palm palm-left" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg">
+      <path d="M108 320 L118 140" stroke="#0F0A22" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <g fill="#0F0A22">
+        <path d="M116 145 C 70 120, 30 100, 5 60 C 55 65, 95 95, 122 138 Z"/>
+        <path d="M118 140 C 85 100, 60 65, 55 15 C 100 40, 122 85, 128 135 Z"/>
+        <path d="M120 138 C 130 90, 150 55, 190 25 C 175 75, 150 110, 126 140 Z"/>
+        <path d="M119 142 C 150 115, 185 100, 215 105 C 185 130, 150 145, 122 148 Z"/>
+        <path d="M117 143 C 95 130, 65 128, 40 140 C 65 150, 95 152, 120 149 Z"/>
+      </g>
+    </svg>
+
+    <svg class="palm palm-right" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg">
+      <path d="M108 320 L120 160" stroke="#0F0A22" stroke-width="9" fill="none" stroke-linecap="round"/>
+      <g fill="#0F0A22">
+        <path d="M118 163 C 75 140, 38 122, 15 88 C 60 90, 96 116, 124 160 Z"/>
+        <path d="M120 160 C 90 128, 68 98, 64 55 C 104 78, 124 116, 130 157 Z"/>
+        <path d="M122 158 C 132 118, 150 90, 185 66 C 170 108, 148 136, 128 160 Z"/>
+        <path d="M121 162 C 148 140, 178 128, 202 132 C 178 152, 150 165, 124 167 Z"/>
+      </g>
+    </svg>
+
+    <div class="synthgrid"></div>
+  </div>
+
   <div class="hero-content">
     <span class="hero-eyebrow">Enterprise Customer Success Leader</span>
-    <h1>Building <em>revenue</em> through customer obsession</h1>
+    <h1>Building <span class="grad-text">revenue</span> through customer obsession</h1>
     <p class="hero-subtitle">
-      10+ years driving retention, expansion, and product adoption across AI SaaS platforms — from founding CS functions at startups to managing $25M global portfolios for Fortune 500 brands.
+      10+ years in customer success, focused on retention, expansion, and getting AI SaaS products adopted by the people who actually use them. I've grown a $25M enterprise portfolio for global brands and built teams that turn new customers into long-term partners.
     </p>
     <div class="hero-ctas">
-      <a href="#experience" class="btn-primary">View My Work ↓</a>
-      <a href="https://www.linkedin.com/in/gavyndwild/" target="_blank" class="btn-outline">Connect on LinkedIn →</a>
+      <a href="#experience" class="btn-primary">View My Work â</a>
+      <a href="https://www.linkedin.com/in/gavyndwild/" target="_blank" class="btn-outline">Connect on LinkedIn â</a>
     </div>
   </div>
+
   <div class="hero-visual">
     <div class="stat-card">
-      <div class="stat-number">$25M</div>
-      <div class="stat-label">Largest enterprise portfolio managed — NomadGo (Starbucks, PepsiCo, Burger King)</div>
+      <div class="stat-number grad-text">$25M</div>
+      <div class="stat-label">Largest enterprise portfolio managed â NomadGo (Starbucks, PepsiCo, Burger King)</div>
     </div>
-    <div class="stat-card alt">
-      <div class="stat-number">100% / 106%</div>
-      <div class="stat-label">Gross & Net Retention Rate — NomadGo Inventory AI</div>
+    <div class="stat-card">
+      <div class="stat-number grad-text">100% / 106%</div>
+      <div class="stat-label">Gross & Net Retention Rate â NomadGo Inventory AI</div>
     </div>
-    <div class="stat-card light">
-      <div class="stat-number">142% NRR</div>
-      <div class="stat-label">Peak Net Retention achieved at Leafly across $1.8M ARR book</div>
+    <div class="stat-card">
+      <div class="stat-number grad-text">142% NRR</div>
+      <div class="stat-label">Peak Net Retention achieved at Leafly across a $1.8M ARR book</div>
     </div>
   </div>
 </section>
@@ -394,19 +513,19 @@
 <!-- METRICS BAR -->
 <div class="metrics-bar">
   <div class="metric-item">
-    <div class="metric-num">10<span>+</span></div>
+    <div class="metric-num grad-text">10+</div>
     <div class="metric-desc">Years in Customer Success & Account Management</div>
   </div>
   <div class="metric-item">
-    <div class="metric-num">95<span>%</span></div>
-    <div class="metric-desc">AI product adoption in 90 days at NomadGo</div>
+    <div class="metric-num grad-text">95%</div>
+    <div class="metric-desc">AI product adoption within 90 days at NomadGo</div>
   </div>
   <div class="metric-item">
-    <div class="metric-num">4.8</div>
-    <div class="metric-desc">CSAT score sustained across full portfolio at Leafly</div>
+    <div class="metric-num grad-text">4.8</div>
+    <div class="metric-desc">CSAT sustained across the full portfolio at Leafly</div>
   </div>
   <div class="metric-item">
-    <div class="metric-num">65<span>+</span></div>
+    <div class="metric-num grad-text">65+</div>
     <div class="metric-desc">Top-quartile NPS score at Leafly</div>
   </div>
 </div>
@@ -414,48 +533,48 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="section-label">About Me</div>
-  <div class="section-title">From startup founder to global enterprise<br>— I build CS that scales</div>
+  <div class="section-title">One of the first CS hires<br>not the founder, but the builder</div>
   <div class="about-grid">
     <div class="about-text">
       <p>
-        I'm a Seattle-based Customer Success leader with a track record of building enterprise CS functions from the ground up and turning them into measurable revenue engines. My work sits at the intersection of AI-powered SaaS, complex enterprise relationships, and data-driven growth.
+        I'm a Seattle-based Customer Success leader who tends to get brought in to build things from scratch: the playbook, the process, the team culture, and then turn all of it into a real revenue engine. My work sits at the intersection of AI-powered SaaS, complex enterprise relationships, and steady, data-backed growth.
       </p>
       <p>
-        At NomadGo, I was hired as the first enterprise CSM to establish the entire CS function — writing the playbook, designing onboarding workflows, and personally managing a $25M portfolio of global QSR and CPG brands. I left with 100% gross retention and 106% NRR.
+        At NomadGo, I was one of the first enterprise CSMs hired at this early-stage AI startup. My job was to build the customer success function from the ground up, not the company itself, just the part that keeps customers happy and renewing. That meant writing the playbook, designing onboarding, and personally managing a $25M portfolio of global QSR and CPG brands. I left having kept 100% gross retention and 106% NRR.
       </p>
       <p>
-        Before that, I spent four years at Springbig — rising through two promotions to Senior Team Lead — and built a reputation for retaining and growing strategic accounts while coaching others to do the same.
+        Before that, I spent four years at Springbig, earning two promotions up to Senior Team Lead. I built a reputation there for retaining and growing strategic accounts, and for helping other CSMs learn to do the same.
       </p>
       <p>
-        I'm at my best when there's a big customer relationship to protect, a new product to champion, or a team to develop. I thrive in high-ownership environments where CS is treated as a revenue function, not just a support ticket queue.
+        I do my best work when there's an important customer relationship on the line, a new product that needs a champion, or a team that's ready to grow. I want to be somewhere that treats customer success as a real driver of revenue, not just a support line.
       </p>
     </div>
     <div class="about-highlights">
       <div class="highlight-item">
-        <strong>Founding Enterprise CSM — NomadGo</strong>
-        <span>Built the CS function from scratch for an AI inventory SaaS startup serving global QSR brands</span>
+        <strong>Founding Enterprise CSM â NomadGo</strong>
+        <span>One of the first CS hires at this AI inventory startup, built the customer success function from zero for global QSR brands</span>
       </div>
       <div class="highlight-item">
-        <strong>Team Lead — Springbig</strong>
-        <span>Led a 6-person CS team to 96% GRR & 120% NRR while managing my own $1M ARR book</span>
+        <strong>Team Lead â Springbig</strong>
+        <span>Led a 6-person CS team to 96% GRR and 120% NRR while managing my own $1M ARR book</span>
       </div>
       <div class="highlight-item">
-        <strong>Senior Account Manager — Leafly</strong>
+        <strong>Senior Account Manager â Leafly</strong>
         <span>Managed 60 accounts at $1.8M ARR, delivering 142% NRR with a 4.8 CSAT and 65+ NPS</span>
       </div>
       <div class="highlight-item">
-        <strong>Seattle, WA — Open to Opportunities</strong>
-        <span>Available for enterprise CSM and CS leadership roles, in-person or hybrid in the Seattle area</span>
+        <strong>Seattle, WA â Open to Opportunities</strong>
+        <span>Based in Seattle and open to new enterprise CSM or CS leadership roles, in-person or hybrid</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" style="background: var(--bg);">
+<section id="experience">
   <div class="section-label">Career History</div>
   <div class="section-title">A track record built on<br>retention and expansion</div>
-  <p class="section-intro">Three consecutive roles with measurable, repeatable success in retention, NRR growth, and customer satisfaction across SaaS verticals.</p>
+  <p class="section-intro">Three roles in a row, each with the same throughline: protecting revenue, growing accounts, and keeping customers happy long after the deal closes.</p>
 
   <div class="timeline">
 
@@ -463,13 +582,13 @@
     <div class="exp-card">
       <div class="exp-header">
         <div class="exp-title">Founding Enterprise Customer Success Manager</div>
-        <span class="exp-dates">Apr 2025 – Dec 2025</span>
+        <span class="exp-dates">Apr 2025 â Dec 2025</span>
       </div>
-      <div class="exp-company">NomadGo Inventory AI — Redmond, WA</div>
+      <div class="exp-company">NomadGo Inventory AI â Redmond, WA</div>
       <div class="exp-desc">AI-powered SaaS startup for inventory and supply chain management; customers include Starbucks, Burger King, Wendy's, Popeyes, Martin Brower, and PepsiCo/Frito-Lay.</div>
       <ul class="exp-bullets">
-        <li><strong>Founding Playbook:</strong> Architected the enterprise CS function from zero — onboarding workflows, QBR templates, escalation paths, and health-scoring metrics for a newly launched AI product.</li>
-        <li><strong>Portfolio Management:</strong> Directly managed 12 strategic global accounts ($1.5M–$7M direct ARR each) with a total book of ~$25M.</li>
+        <li><strong>Founding Playbook:</strong> Built the enterprise CS function from zero, onboarding workflows, QBR templates, escalation paths, and health-scoring metrics for a newly launched AI product.</li>
+        <li><strong>Portfolio Management:</strong> Directly managed 12 strategic global accounts ($1.5Mâ$7M direct ARR each) with a total book of about $25M.</li>
         <li><strong>Retention & Expansion:</strong> Achieved 100% gross retention and 106% NRR ($1.5M in expansion) within the first operating year.</li>
         <li><strong>AI Adoption:</strong> Led the rollout of "Spatial Vision" across 12 enterprise brands, reaching 95% product adoption within 90 days of launch.</li>
         <li><strong>Pre-Sales Enablement:</strong> Built pre-sales processes and partnered with sales to accelerate time-to-value for new enterprise accounts.</li>
@@ -486,15 +605,15 @@
     <div class="exp-card">
       <div class="exp-header">
         <div class="exp-title">Team Lead, Senior Customer Success Manager</div>
-        <span class="exp-dates">Mar 2021 – Apr 2025</span>
+        <span class="exp-dates">Mar 2021 â Apr 2025</span>
       </div>
-      <div class="exp-company">Springbig — Seattle, WA</div>
-      <div class="exp-desc">Top AI-powered martech SaaS platform providing CRM, loyalty/rewards, and digital communications solutions to the cannabis retail industry.</div>
+      <div class="exp-company">Springbig â Seattle, WA</div>
+      <div class="exp-desc">Top AI-powered martech SaaS platform providing CRM, loyalty/rewards, and digital communications solutions to multi-location retail brands.</div>
       <ul class="exp-bullets">
-        <li><strong>Performance & Advancement:</strong> Two promotions in under two years — consistently ranked #1 in performance metrics across the CS organization.</li>
+        <li><strong>Performance & Advancement:</strong> Two promotions in under two years, consistently ranked #1 in performance metrics across the CS organization.</li>
         <li><strong>Portfolio:</strong> Managed 25 strategic accounts (multi-state operators, retailers, brands) averaging $36K ARR, totaling $1M in ARR.</li>
         <li><strong>Retention & Expansion:</strong> 98% GRR and 138% NRR through data-driven upsells, expanded locations, and increased utilization.</li>
-        <li><strong>Team Leadership:</strong> Led, mentored, and trained a CS team of 6 — driving 96% GRR and 120% NRR at the team level while cutting onboarding time by 33%.</li>
+        <li><strong>Team Leadership:</strong> Led, mentored, and trained a CS team of 6, driving 96% GRR and 120% NRR at the team level while cutting onboarding time by 33%.</li>
       </ul>
       <div class="exp-stats">
         <span class="exp-stat">$1M ARR Book</span>
@@ -508,13 +627,13 @@
     <div class="exp-card">
       <div class="exp-header">
         <div class="exp-title">Senior Account Manager</div>
-        <span class="exp-dates">Jul 2019 – Mar 2021</span>
+        <span class="exp-dates">Jul 2019 â Mar 2021</span>
       </div>
-      <div class="exp-company">Leafly — Seattle, WA</div>
-      <div class="exp-desc">Leading cannabis consumer platform — 100M+ annual users — connecting consumers with retailers through digital discovery, education, and marketplace listings.</div>
+      <div class="exp-company">Leafly â Seattle, WA</div>
+      <div class="exp-desc">Leading digital platform and marketplace for consumer education, product discovery, and retailer connections, 100M+ annual users.</div>
       <ul class="exp-bullets">
-        <li><strong>Early Impact:</strong> Promoted to Senior AM within 8 months, delivering 135% NRR in the first year — fastest promotion in team history.</li>
-        <li><strong>Portfolio:</strong> 60 key accounts averaging $33K ARR — $1.8M total book of business.</li>
+        <li><strong>Early Impact:</strong> Promoted to Senior AM within 8 months, delivering 135% NRR in the first year, the fastest promotion in team history.</li>
+        <li><strong>Portfolio:</strong> 60 key accounts averaging $33K ARR, a $1.8M total book of business.</li>
         <li><strong>Retention & Expansion:</strong> 96% GRR and 142% NRR through ad upsells, premium placements, and multi-location expansions.</li>
         <li><strong>Customer Satisfaction:</strong> Sustained a 4.8 CSAT and top-quartile NPS of 65+ across the full portfolio.</li>
       </ul>
@@ -533,44 +652,48 @@
 <section id="skills">
   <div class="section-label">Skills & Strengths</div>
   <div class="section-title">What I bring to the table</div>
-  <p class="section-intro">Combining strategic thinking with the operational rigor to drive measurable outcomes at every stage of the customer lifecycle.</p>
+  <p class="section-intro">A mix of strategy and hands-on execution, plus the people skills that make the numbers possible in the first place.</p>
 
   <div class="skills-grid">
     <div class="skill-card">
-      <div class="skill-icon">🏆</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">Enterprise Account Management</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">📈</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">Revenue Retention & Expansion</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🤖</div>
+      <div class="skill-icon">ð¤</div>
       <div class="skill-name">AI SaaS Onboarding & Adoption</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">👥</div>
+      <div class="skill-icon">ð¥</div>
       <div class="skill-name">CS Team Leadership & Mentoring</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">📊</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">QBR & Executive Storytelling</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">❤️‍🔥</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">Customer Health Scoring</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🔗</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">Cross-Functional Collaboration</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🚀</div>
+      <div class="skill-icon">ð</div>
       <div class="skill-name">Pre-Sales & Implementation Enablement</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🧠</div>
+      <div class="skill-icon">ð§ </div>
       <div class="skill-name">Data-Driven Decision Making</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">ð¤</div>
+      <div class="skill-name">Trust, Respect & Real Relationships</div>
     </div>
   </div>
 
@@ -578,14 +701,14 @@
     <div class="section-label" style="margin-bottom: 1.25rem;">Certifications</div>
     <div class="cert-list">
       <div class="cert-card">
-        <div class="cert-badge">🗺️</div>
+        <div class="cert-badge">ðºï¸</div>
         <div class="cert-info">
           <div class="cert-name">Customer Experience: Journey Mapping</div>
           <div class="cert-issuer">National Association of State Boards of Accountancy (NASBA)</div>
         </div>
       </div>
       <div class="cert-card">
-        <div class="cert-badge">✅</div>
+        <div class="cert-badge">â</div>
         <div class="cert-info">
           <div class="cert-name">Customer Success Foundations Professional Certificate</div>
           <div class="cert-issuer">ChurnZero</div>
@@ -600,18 +723,17 @@
   <div class="section-label">Get In Touch</div>
   <div class="section-title">Let's build something great together</div>
   <p class="section-intro">
-    Open to new enterprise CSM opportunities and CS leadership roles in the Seattle area. I'd love to connect.
+    Open to new enterprise CSM and CS leadership roles in the Seattle area. If any of this resonates, I'd love to hear from you.
   </p>
   <div class="contact-links">
-    <a href="mailto:gdwild1@gmail.com" class="contact-link">✉ gdwild1@gmail.com</a>
-    <a href="tel:+19513297000" class="contact-link">📞 (951) 329-7000</a>
-    <a href="https://www.linkedin.com/in/gavyndwild/" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
+    <a href="mailto:gdwild1@gmail.com" class="contact-link">â gdwild1@gmail.com</a>
+    <a href="https://www.linkedin.com/in/gavyndwild/" target="_blank" class="contact-link">ð LinkedIn Profile</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Gavyn Wild · Seattle, WA · Enterprise Customer Success</p>
+  <p>Â© 2026 Gavyn Wild Â· Seattle, WA Â· Enterprise Customer Success</p>
 </footer>
 
 </body>
